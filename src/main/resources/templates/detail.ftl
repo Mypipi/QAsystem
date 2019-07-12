@@ -6,19 +6,7 @@
         <div class="zu-main-content-inner">
             <meta itemprop="isTopQuestion" content="false">
             <meta itemprop="visitsCount" content="402">
-            <!--
-            <div class="zm-tag-editor zg-section">
-                <div class="zm-tag-editor-labels zg-clear">
-                    <a data-tip="t$b$19550730" class="zm-item-tag" href="">新浪微博</a>
-                    <a data-tip="t$b$19554412" class="zm-item-tag" href="">网络营销</a>
-                    <a data-tip="t$b$19559739" class="zm-item-tag" href="">微博粉丝</a>
-                    <a data-tip="t$b$19560290" class="zm-item-tag" href="">僵尸粉</a>
-                    <a data-tip="t$b$19565757" class="zm-item-tag" href="">网络水军</a>
-                    <a href="javascript:;" class="zu-edit-button" name="edit">
-                        <i class="zu-edit-button-icon"></i>修改</a>
-                </div>
-            </div>
-            -->
+
             <div id="zh-question-title" data-editable="true" class="zm-editable-status-normal">
                 <h2 class="zm-item-title">
 
@@ -77,7 +65,9 @@
                  data-widget="navigable" data-navigable-options="{&quot;items&quot;: &quot;&gt;.zm-item-answer&quot;}"
                  data-init="{&quot;params&quot;: {&quot;url_token&quot;: 36301524, &quot;pagesize&quot;: 10, &quot;offset&quot;: 0}, &quot;nodename&quot;: &quot;QuestionAnswerListV2&quot;}">
 
-                #foreach($comment in $comments)
+
+                <#list comments as comment>
+
                 <div tabindex="-1" class="zm-item-answer  zm-item-expanded" itemprop="topAnswer" itemscope=""
                      itemtype="http://schema.org/Answer" data-aid="22162611" data-atoken="66862039" data-collapsed="0"
                      data-created="1444310527" data-deleted="0" data-helpful="1" data-isowner="0" data-copyable="1"
@@ -99,9 +89,9 @@
                         <div class="zm-item-answer-author-info">
                             <a class="zm-item-link-avatar avatar-link" href="" target="_blank"
                                data-tip="p$t$yingxiaodao">
-                                <img src="$comment.user.headUrl"
+                                <img src="${comment.user.headUrl}"
                                      class="zm-list-avatar avatar"></a>
-                            <a class="author-link" target="_blank" href="/user/$comment.user.id">$comment.user.name</a>
+                            <a class="author-link" target="_blank" href="/user/${comment.user.id}">${comment.user.name}</a>
                             </div>
                         <div class="zm-item-vote-info" data-votecount="28" data-za-module="VoteInfo">
                                 <span class="voters text">
@@ -113,14 +103,14 @@
                          data-action="/answer/content" data-author-name="营销岛"
                          data-entry-url="/question/36301524/answer/66862039">
                         <div class="zm-editable-content clearfix">
-                            $comment.comment.content
+                            ${comment.comment.content}
                         </div>
                     </div>
                     <a class="zg-anchor-hidden ac" name="22162611-comment"></a>
                     <div class="zm-item-meta answer-actions clearfix js-contentActions">
                         <div class="zm-meta-panel">
                             <a itemprop="url" class="answer-date-link meta-item" target="_blank" href="">发布于
-                            ${(comment.comment..createdDate?string("yyyy-MM-dd HH:mm:ss"))!}</a>
+                            ${(comment.comment.createdDate?string("yyyy-MM-dd HH:mm:ss"))!}</a>
 
                             <!--
                             <a href="" name="addcomment" class="meta-item toggle-comment js-toggleCommentBox">
@@ -135,11 +125,16 @@
                         </div>
                     </div>
                 </div>
-                #end
+
+                </#list>
             </div>
             <a name="draft"></a>
+
             <form action="/addComment" method="post" id="commentform">
-                <input type="hidden" name="questionId" value="$question.id"/>
+
+                <#--这里没改导致debug浪费n多时间，postman我记住你了-->
+
+                <input type="hidden" name="questionId" value="${question.id}"/>
             <div id="zh-question-answer-form-wrap" class="zh-question-answer-form-wrap">
                 <div class="zm-editable-editor-wrap" style="">
                     <div class="zm-editable-editor-outer">
