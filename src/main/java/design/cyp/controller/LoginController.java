@@ -42,8 +42,11 @@ public class LoginController {
             Map<String, String> map = userService.register(username, password);//判断用户名和密码是否正确
             //利用ticket来实现免密登录
             if (map.containsKey("ticket")) {
-                Cookie cookie = new Cookie("ticket", map.get("ticket"));
+                Cookie cookie = new Cookie("ticket", map.get("ticket").toString());
                 cookie.setPath("/");
+                if (rememberme) {
+                    cookie.setMaxAge(3600*24*5);
+                }
                 httpServletResponse.addCookie(cookie);
                 //利用next实现登录后的跳转
                 if (StringUtils.isNotBlank(next)){
@@ -58,7 +61,7 @@ public class LoginController {
                 return "login";
             }
             //注册完自动登录
-
+            //return "redirect:/";
 
         } catch (Exception e) {
             logger.error("reg error" + e.getMessage());
@@ -88,10 +91,13 @@ public class LoginController {
         try {
             Map<String, String> map = userService.login(username, password);
             if (map.containsKey("ticket")) {
-                Cookie cookie = new Cookie("ticket", map.get("ticket"));
+                Cookie cookie = new Cookie("ticket", map.get("ticket").toString());
                 cookie.setPath("/");
+                if (rememberme) {
+                    cookie.setMaxAge(3600*24*5);
+                }
                 httpServletResponse.addCookie(cookie);
-                if (!StringUtils.isEmpty(next)){
+                if (StringUtils.isNotBlank(next)){
                     return "redirect:"+next;
                 }
                 return "redirect:/";
@@ -102,6 +108,7 @@ public class LoginController {
                 return "login";
             }
             //注册完自动登录
+            //return "redirect:/";
 
 
         } catch (Exception e) {

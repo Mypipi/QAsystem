@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 @Mapper//和mybatis关联
 public interface UserDAO {
     String TABLE_NAME = " user ";//两边加空格防止拼接出现问题
-    String INSERT_FIELDS = " name,password,salt,head_url ";
+    String INSERT_FIELDS = " name, password, salt, head_url ";
     String SELECT_FIELDS = " id ," + INSERT_FIELDS;
 
     @Insert({"insert into ", TABLE_NAME, " (", INSERT_FIELDS, ") values (#{name},#{password},#{salt},#{headUrl})"})

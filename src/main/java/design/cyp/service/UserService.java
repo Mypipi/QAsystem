@@ -5,15 +5,13 @@ import design.cyp.dao.UserDAO;
 import design.cyp.model.LoginTicket;
 import design.cyp.model.User;
 import design.cyp.util.QAUtil;
-import freemarker.template.utility.StringUtil;
+
+import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.util.StringUtils;
 
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.UUID;
+
+import java.util.*;
 
 @Service
 public class UserService {
@@ -23,6 +21,11 @@ public class UserService {
     @Autowired
     LoginTicketDAO loginTicketDAO;
 
+    public User selectByName(String name) {
+        return userDAO.selectByName(name);
+    }
+
+
     public User getUser(int id) {
         return userDAO.selectById(id);
     }
@@ -31,17 +34,18 @@ public class UserService {
 
         Map<String, String> map = new HashMap<String, String>();
         //用户名为空
-        if (StringUtils.isEmpty(username)){
+        if (StringUtils.isBlank(username)){
             map.put("msg","username can not be empty");
             return map;
         }
         //密码为空
-        if (StringUtils.isEmpty(password)){
+        if (StringUtils.isBlank(password)){
             map.put("msg","password can not be empty");
             return map;
         }
         //用户名重复
         User user = userDAO.selectByName(username);
+
         if (user != null){
             map.put("msg","username is exits");
             return map;
@@ -51,12 +55,12 @@ public class UserService {
         user = new User();
         user.setName(username);
         user.setSalt(UUID.randomUUID().toString().substring(0,5));
-        long time = new Date().getTime();
+        String head = String.format("http://images.nowcoder.com/head/%dt.png@0e_40w_40h_0c_1i_1o_90Q_1x.png", new Random().nextInt(1000));
         if (username.contains("@qq.com")){
-            user.setHeadUrl("https://q.qlogo.cn/g?b=qq&nk="+username+"&s=40");
+            user.setHeadUrl("http://q2.qlogo.cn/headimg_dl?dst_uin="+username+"&amp;spec=40");
 
         }else{
-            user.setHeadUrl("https://cdn.v2ex.co/gravatar//"+time+"?s=50&d=monsterid&r=g");
+            user.setHeadUrl(head);
         }
 
         user.setPassword(QAUtil.MD5(password+user.getSalt()));
@@ -73,12 +77,12 @@ public class UserService {
 
         Map<String, String> map = new HashMap<String, String>();
         //用户名为空
-        if (StringUtils.isEmpty(username)){
+        if (StringUtils.isBlank(username)){
             map.put("msg","username can not be empty");
             return map;
         }
         //密码为空
-        if (StringUtils.isEmpty(password)){
+        if (StringUtils.isBlank(password)){
             map.put("msg","password can not be empty");
             return map;
         }

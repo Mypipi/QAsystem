@@ -22,16 +22,23 @@ public interface MessageDAO {
     int addMessage(Message message);
 
     //通过id查询问题详情
-    @Select({"select count(id) from", TABLE_NAME, "where entity_id = #{entityId} and entity_type=#{entityType}"})
-    int getCommentCount(@Param("entityId") int entityId,
-                        @Param("entityType") int entityType);
+    @Select({"select ", SELECT_FIELDS,"from", TABLE_NAME,"where conversation_id=#{conversationId} order by id desc limit #{offset},#{limit}"})
+    List<Message> getConversationDetail(@Param("conversationId") String conversationId,
+                                        @Param("offset") int offset,
+                                        @Param("limit") int limit);
 
-    @Select({"select", SELECT_FIELDS, "from", TABLE_NAME, "where entity_id = #{entityId} and entity_type=#{entityType} order by ",
-            " created_date desc "})
-    List<Comment> selectCommentByEntity(@Param("entityId") int entityId,
-                                        @Param("entityType") int entityType);
+    @Select({"select count(id) from ", TABLE_NAME, "where has_read = 0 and to_id = #{userId} and conversation_id=#{conversationId}"})
+    int getConversationUnreadCount(@Param("userId") int userId,
+                                   @Param("conversationId") String conversationId);
 
-    @Update({"update comment set status = #{status} where entity_id=#{entityId} and entity_type=#{entityType}"})
-    void updateStatus(@Param("entityId") int entityId, @Param("entityType") int entityType, @Param("status") int status);
+
+    @Select({"select ", INSERT_FIELDS, " ,count(id) as id from ( select * from ", TABLE_NAME, " where from_id=#{userId} or to_id=#{userId} order by id desc) tt group by conversation_id  order by created_date desc limit #{offset}, #{limit}"})
+    List<Message> getConversationList(@Param("userId") int userId,
+                                        @Param("offset") int offset,
+                                        @Param("limit") int limit);
+
+    @Update({"update",TABLE_NAME,"set has_read = 1 where conversation_id=#{conversationId}"})
+    void updateStatus(@Param("conversationId") String conversationId);
+
 
 }
