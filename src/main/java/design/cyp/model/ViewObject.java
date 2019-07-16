@@ -11,7 +11,7 @@ public class ViewObject {
         objectMap.put(key, value);
     }
 
-    public Object get(String key){
+    public Object get(String key) {
         return objectMap.get(key);
     }
 }

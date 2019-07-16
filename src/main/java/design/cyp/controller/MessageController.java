@@ -35,54 +35,57 @@ public class MessageController {
 
     private static final Logger logger = LoggerFactory.getLogger(MessageController.class);
 
+    //消息详情界面
     @RequestMapping(path = {"/msg/detail"}, method = RequestMethod.GET)
     public String getConversationDetail(Model model,
                                         @RequestParam("conversationId") String conversationId) {
         try {
             messageService.updateHasRead(conversationId);
-            List<Message> messageList = messageService.getConversationDetail(conversationId,0,10);
+            List<Message> messageList = messageService.getConversationDetail(conversationId, 0, 10);
             List<ViewObject> messages = new ArrayList<>();
-            for (Message message : messageList){
+            for (Message message : messageList) {
                 ViewObject vo = new ViewObject();
-                vo.set("message",message);
+                vo.set("message", message);
                 User user = userService.getUser(message.getFromId());
-                if (user == null){
+                if (user == null) {
                     continue;
                 }
-                vo.set("headUrl",user.getHeadUrl());
-                vo.set("userId",user.getId());
+                vo.set("headUrl", user.getHeadUrl());
+                vo.set("userId", user.getId());
                 messages.add(vo);
             }
-            model.addAttribute("messages",messages);
+            model.addAttribute("messages", messages);
 
-        }catch (Exception e){
-            logger.error("获取详情失败"+e.getMessage());
+        } catch (Exception e) {
+            logger.error("获取详情失败" + e.getMessage());
         }
         return "letterDetail";
     }
 
+    //私信界面
     @RequestMapping(path = {"/msg/list"}, method = RequestMethod.GET)
     public String getConversationlist(Model model) {
 
-        if (hostHolder.getUser() == null){
+        if (hostHolder.getUser() == null) {
             return "redirect:/reglogin";
         }
         int localUserId = hostHolder.getUser().getId();
-        List<Message> conversationList = messageService.getConversationList(localUserId,0,10);
+        List<Message> conversationList = messageService.getConversationList(localUserId, 0, 10);
         List<ViewObject> conversations = new ArrayList<>();
-        for (Message message : conversationList){
+        for (Message message : conversationList) {
             ViewObject vo = new ViewObject();
-            vo.set("conversation",message);
+            vo.set("conversation", message);
             int targetId = message.getFromId() == localUserId ? message.getToId() : message.getFromId();
-            vo.set("user",userService.getUser(targetId));
-            vo.set("unread",messageService.getConversationUnreadCount(localUserId,message.getConversationId()));
+            vo.set("user", userService.getUser(targetId));
+            vo.set("unread", messageService.getConversationUnreadCount(localUserId, message.getConversationId()));
             conversations.add(vo);
         }
-        model.addAttribute("conversations",conversations);
+        model.addAttribute("conversations", conversations);
 
         return "letter";
     }
 
+    //添加私信功能
     @RequestMapping(path = {"/msg/addMessage"}, method = RequestMethod.POST)
     @ResponseBody
     public String addMessage(@RequestParam("toName") String toName,

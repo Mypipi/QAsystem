@@ -11,10 +11,10 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 public class QAWebConfiguration extends WebMvcConfigurerAdapter {
     //两个拦截器
     @Autowired
-    PassportInterceptor passportInterceptor;
+    PassportInterceptor passportInterceptor;//用来登录的
 
     @Autowired
-    LoginRequiredInterceptor loginRequredInterceptor;
+    LoginRequiredInterceptor loginRequredInterceptor;//登录跳转的
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {

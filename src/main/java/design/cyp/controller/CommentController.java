@@ -34,15 +34,17 @@ public class CommentController {
     @Autowired
     QuestionService questionService;
 
+    //添加评论
     @RequestMapping(path = {"/addComment"}, method = RequestMethod.POST)
     public String addComment(@RequestParam("questionId") int questionId,
                              @RequestParam("content") String content) {
         try {
 
 
-            content = sensitiveService.filter(content);
-            content = HtmlUtils.htmlEscape(content);
+            content = sensitiveService.filter(content);//过滤敏感词
+            content = HtmlUtils.htmlEscape(content);//过滤html
             Comment comment = new Comment();
+            //验证有没有登录
             if (hostHolder.getUser() != null) {
                 comment.setUserId(hostHolder.getUser().getId());
 
@@ -58,14 +60,15 @@ public class CommentController {
 
             commentService.addComment(comment);
 
-            int count = commentService.getCommentCount(comment.getEntityId(),comment.getEntityType());
-            questionService.updateCommentCount(comment.getEntityId(),count);
+            //计算评论数量
+            int count = commentService.getCommentCount(comment.getEntityId(), comment.getEntityType());
+            questionService.updateCommentCount(comment.getEntityId(), count);
 
-        }catch (Exception e){
-            logger.error("添加评论失败"+e.getMessage());
+        } catch (Exception e) {
+            logger.error("添加评论失败" + e.getMessage());
         }
 
-        return "redirect:/question/"+questionId;
+        return "redirect:/question/" + questionId;//返回问题页面
 
 
     }

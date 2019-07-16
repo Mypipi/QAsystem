@@ -16,6 +16,7 @@ import java.util.Map;
 //@Controller
 public class IndexController {
     private static final Logger logger = LoggerFactory.getLogger(LogAspect.class);
+
     @RequestMapping(path = {"/", "index"})//指定虚拟路径来访问
     @ResponseBody//返回下面的东西
     public String index() {
@@ -43,7 +44,7 @@ public class IndexController {
         map.put("j", 2);
         model.addAttribute("list", list);
         model.addAttribute("map", map);
-       // model.addAttribute("user", new User("li", "11"));
+        // model.addAttribute("user", new User("li", "11"));
 
         return "home";//用名字为home的模板渲染
     }

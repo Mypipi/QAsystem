@@ -45,12 +45,12 @@ public class LoginController {
                 Cookie cookie = new Cookie("ticket", map.get("ticket").toString());
                 cookie.setPath("/");
                 if (rememberme) {
-                    cookie.setMaxAge(3600*24*5);
+                    cookie.setMaxAge(3600 * 24 * 5);
                 }
                 httpServletResponse.addCookie(cookie);
                 //利用next实现登录后的跳转
-                if (StringUtils.isNotBlank(next)){
-                    return "redirect:"+next;
+                if (StringUtils.isNotBlank(next)) {
+                    return "redirect:" + next;
                 }
                 return "redirect:/";
 
@@ -73,18 +73,18 @@ public class LoginController {
     //登录界面
     @RequestMapping(path = {"/reglogin"}, method = {RequestMethod.GET})
     public String reg(Model model,
-                      @RequestParam(value = "next",required = false) String next) {
-        model.addAttribute("next",next);
+                      @RequestParam(value = "next", required = false) String next) {
+        model.addAttribute("next", next);
 
         return "login";
     }
 
-    //
+    //登录部分
     @RequestMapping(path = {"/login/"}, method = RequestMethod.POST)
     public String login(Model model,
                         @RequestParam("username") String username,
                         @RequestParam("password") String password,
-                        @RequestParam(value = "next",required = false) String next,
+                        @RequestParam(value = "next", required = false) String next,
                         @RequestParam(value = "rememberme", defaultValue = "false") boolean rememberme,
                         HttpServletResponse httpServletResponse) {
 
@@ -93,12 +93,13 @@ public class LoginController {
             if (map.containsKey("ticket")) {
                 Cookie cookie = new Cookie("ticket", map.get("ticket").toString());
                 cookie.setPath("/");
+                //设置ticket过期时间，在remember条件下
                 if (rememberme) {
-                    cookie.setMaxAge(3600*24*5);
+                    cookie.setMaxAge(3600 * 24 * 5);
                 }
                 httpServletResponse.addCookie(cookie);
-                if (StringUtils.isNotBlank(next)){
-                    return "redirect:"+next;
+                if (StringUtils.isNotBlank(next)) {
+                    return "redirect:" + next;//返回未登录界面
                 }
                 return "redirect:/";
 
@@ -118,7 +119,8 @@ public class LoginController {
 
     }
 
-    @RequestMapping(path = {"/logout"}, method = {RequestMethod.GET,RequestMethod.POST})
+    //登出功能
+    @RequestMapping(path = {"/logout"}, method = {RequestMethod.GET, RequestMethod.POST})
     public String logout(@CookieValue("ticket") String ticket) {
         userService.logout(ticket);
         return "redirect:/";

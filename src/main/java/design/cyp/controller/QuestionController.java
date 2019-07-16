@@ -81,10 +81,10 @@ public class QuestionController {
         model.addAttribute("question", question);
         List<Comment> commentList = commentService.getCommentsByEntity(qid, EntityType.ENTITY_QUESTION);
         List<ViewObject> comments = new ArrayList<ViewObject>();
-        for (Comment comment : commentList){
+        for (Comment comment : commentList) {
             ViewObject viewObject = new ViewObject();
-            viewObject.set("comment",comment);
-            viewObject.set("user",userService.getUser(comment.getUserId()));
+            viewObject.set("comment", comment);
+            viewObject.set("user", userService.getUser(comment.getUserId()));
             comments.add(viewObject);
         }
         model.addAttribute("comments", comments);
