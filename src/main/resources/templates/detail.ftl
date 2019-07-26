@@ -67,25 +67,37 @@
 
 
                 <#list comments as comment>
-
-                    <div tabindex="-1" class="zm-item-answer  zm-item-expanded" itemprop="topAnswer" itemscope=""
-                         itemtype="http://schema.org/Answer" data-aid="22162611" data-atoken="66862039"
-                         data-collapsed="0"
-                         data-created="1444310527" data-deleted="0" data-helpful="1" data-isowner="0" data-copyable="1"
-                         data-za-module="AnswerItem">
+                    <#--刷新卡住的原因-->
+                    <div class="zm-item-answer  zm-item-expanded js-comment">
                         <link itemprop="url" href="">
                         <meta itemprop="answer-id" content="22162611">
                         <meta itemprop="answer-url-token" content="66862039">
                         <a class="zg-anchor-hidden" name="answer-22162611"></a>
-                        <div class="zm-votebar goog-scrollfloater" data-za-module="VoteBar">
-                            <button class="up" aria-pressed="false" title="赞同">
-                                <i class="icon vote-arrow"></i>
-                                <span class="count">28</span>
-                                <span class="label sr-only">赞同</span></button>
-                            <button class="down" aria-pressed="false" title="反对，不会显示你的姓名">
-                                <i class="icon vote-arrow"></i>
-                                <span class="label sr-only">反对，不会显示你的姓名</span></button>
+
+                        <div class="zm-votebar goog-scrollfloater js-vote" data-id="${comment.comment.id!}">
+
+                            <#if ($comment.liked > 0)>
+                            <button class="up js-like pressed" title="赞同">
+                                <#else>
+                                <button class="up js-like" title="赞同">
+                                    </#if>
+                                    <i class="icon vote-arrow"></i>
+                                    <span class="count js-voteCount">${comment.likeCount!}</span>
+                                    <span class="label sr-only">赞同</span>
+                                </button>
+
+
+                                <#if ($comment.liked < 0)>
+                                <button class="down js-dislike pressed" title="反对，不会显示你的姓名">
+                                    <#else>
+                                    <button class="down js-dislike" title="反对，不会显示你的姓名">
+                                        </#if>
+                                        <i class="icon vote-arrow"></i>
+                                        <span class="label sr-only">反对，不会显示你的姓名</span>
+                                    </button>
                         </div>
+
+
                         <div class="answer-head">
                             <div class="zm-item-answer-author-info">
                                 <a class="zm-item-link-avatar avatar-link" href="" target="_blank"
@@ -98,7 +110,7 @@
                             <div class="zm-item-vote-info" data-votecount="28" data-za-module="VoteInfo">
                                 <span class="voters text">
                                     <a href="" class="more text">
-                                        <span class="js-voteCount">28</span>&nbsp;人赞同</a></span>
+                                        <span class="js-voteCount">${comment.likeCount!}&nbsp;</span>人赞同</a></span>
                             </div>
                         </div>
                         <div class="zm-item-rich-text expandable js-collapse-body" data-resourceid="6727688"
@@ -134,7 +146,7 @@
 
             <form action="/addComment" method="post" id="commentform">
 
-            <#--这里没改导致debug浪费n多时间，postman我记住你了-->
+                <#--这里没改导致debug浪费n多时间，postman我记住你了-->
 
                 <input type="hidden" name="questionId" value="${question.id}"/>
                 <div id="zh-question-answer-form-wrap" class="zh-question-answer-form-wrap">

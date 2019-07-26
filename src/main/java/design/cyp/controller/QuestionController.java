@@ -1,10 +1,8 @@
 package design.cyp.controller;
 
-import ch.qos.logback.core.encoder.EchoEncoder;
-import design.cyp.aspect.LogAspect;
-import design.cyp.dao.QuestionDAO;
 import design.cyp.model.*;
 import design.cyp.service.CommentService;
+import design.cyp.service.LikeService;
 import design.cyp.service.QuestionService;
 import design.cyp.service.UserService;
 import design.cyp.util.QAUtil;
@@ -13,12 +11,10 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
 
 @Controller
@@ -37,6 +33,9 @@ public class QuestionController {
 
     @Autowired
     HostHolder hostHolder;
+
+    @Autowired
+    LikeService likeService;
 
     //添加问题
     @RequestMapping(value = "/question/add", method = {RequestMethod.POST})
@@ -73,7 +72,7 @@ public class QuestionController {
     }
 
     //实现问题详情界面
-    @RequestMapping(value = "/question/{qid}")
+    @RequestMapping(value = "/question/{qid}",method = RequestMethod.GET)
     public String questionDetail(Model model,
                                  @PathVariable("qid") int qid) {
 
@@ -84,6 +83,13 @@ public class QuestionController {
         for (Comment comment : commentList) {
             ViewObject viewObject = new ViewObject();
             viewObject.set("comment", comment);
+            if (hostHolder.getUser() == null) {
+                viewObject.set("liked", 0);
+            } else {
+                viewObject.set("liked", likeService.getLikeStatus(hostHolder.getUser().getId(), EntityType.ENTITY_COMMENT, comment.getId()));
+            }
+
+            viewObject.set("likeCount", likeService.getLikeCount(EntityType.ENTITY_COMMENT, comment.getId()));
             viewObject.set("user", userService.getUser(comment.getUserId()));
             comments.add(viewObject);
         }
