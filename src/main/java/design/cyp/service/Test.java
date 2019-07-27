@@ -6,8 +6,9 @@ import redis.clients.jedis.Jedis;
 public class Test {
 
     public static void main(String[] argv) {
-        JedisAdapter jedisAdapter = new JedisAdapter();
-        System.out.println(jedisAdapter);
+        String url = "<a href= http:127.0.0.1:8080/question/" + 105 + ">点击查看详情</a>";
+        System.out.println(url);
+
 
     }
 }

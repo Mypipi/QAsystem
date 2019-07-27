@@ -83,6 +83,7 @@ public class QuestionController {
         for (Comment comment : commentList) {
             ViewObject viewObject = new ViewObject();
             viewObject.set("comment", comment);
+            //显示赞的功能
             if (hostHolder.getUser() == null) {
                 viewObject.set("liked", 0);
             } else {

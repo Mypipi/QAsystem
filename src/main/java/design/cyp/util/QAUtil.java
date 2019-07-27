@@ -16,6 +16,7 @@ public class QAUtil {
 
 
     public static int ANONYMOUS_USERID = 3;
+    public static int SYSTEM_USER = 4;
 
     //利用json来
     public static String getJSONString(int code) {

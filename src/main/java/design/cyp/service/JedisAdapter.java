@@ -29,11 +29,13 @@ public class JedisAdapter implements InitializingBean {
 
 
 
+    //继承接口必须冲重写的方法
     @Override
     public void afterPropertiesSet() throws Exception {
         pool = new JedisPool("redis://localhost:6379");
     }
-
+    //使用集合类型来实现点赞功能，比较适合
+    //添加一个kv
     public long sadd(String key, String value) {
         Jedis jedis = null;
         try {
@@ -49,6 +51,7 @@ public class JedisAdapter implements InitializingBean {
         return 0;
     }
 
+    //删除一个kv
     public long srem(String key, String value) {
         Jedis jedis = null;
         try {
@@ -64,6 +67,7 @@ public class JedisAdapter implements InitializingBean {
         return 0;
     }
 
+    //返回集合中的元素数量
     public long scard(String key) {
         Jedis jedis = null;
         try {
@@ -79,6 +83,7 @@ public class JedisAdapter implements InitializingBean {
         return 0;
     }
 
+    //判断member是否是集合的成员
     public boolean sismember(String key, String value) {
         Jedis jedis = null;
         try {
