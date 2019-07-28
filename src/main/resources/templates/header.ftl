@@ -16,7 +16,8 @@
     <meta http-equiv="mobile-agent" content="format=html5;url=#">
     <meta id="znonce" name="znonce" content="d3edc464cf014708819feffde7ddd01e">
     <link rel="search" type="application/opensearchdescription+xml" href="#" title="牛">
-    <link rel="stylesheet" type="text/css" href="../styles/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/styles/bootstrap.min.css">
+
     <style>
         .zm-item-answer-author-info a.collapse {
             margin-top: 0

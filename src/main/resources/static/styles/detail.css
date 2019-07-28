@@ -287,7 +287,7 @@ button {
 }
 h1,h2,h3,h4,h5 {
     font-weight:700;
-    font-size:16px;
+    font-size:14px;
     outline:0
 }
 i,em {
@@ -8158,9 +8158,7 @@ html.no-touchevents .zu-top-nav-userinfo:hover {
     left:10px;
     border:1px solid rgba(0,0,0,.1);
     box-shadow:0 1px 0 rgba(255,255,255,.1);
-    border-radius: 50%;
     background-color:transparent
-
 }
 .top-nav-dropdown .zg-icon {
     width:20px;
