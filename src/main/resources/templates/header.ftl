@@ -94,7 +94,7 @@
                        data-za-a="visit_home" data-za-l="top_navigation_home">首页</a>
                 </li>
                 <li class="zu-top-nav-li " id="zh-top-nav-explore">
-                    <a class="zu-top-nav-link" href="#">发现</a>
+                    <a class="zu-top-nav-link" href="/pullfeeds">发现</a>
                 </li>
                 <li class="top-nav-noti zu-top-nav-li ">
                     <a class="zu-top-nav-link" href="javascript:;" id="zh-top-nav-count-wrap" role="button"><span

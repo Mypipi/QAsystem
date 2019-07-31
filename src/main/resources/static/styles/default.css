@@ -1,0 +1,738 @@
+@charset "UTF-8";
+.nowcoder-header {
+    background: #3d444c;
+    position: fixed;
+    width: 100%;
+    z-index: 101;
+    left: 0;
+    margin-bottom: 30px
+}
+
+.header-main {
+    width: 1200px;
+    margin: 0 auto
+}
+
+.nowcoder-logo {
+    background: url(//static.nowcoder.com/images/res/logo/logo-v3.png) no-repeat;
+    background: url(//static.nowcoder.com/images/res/logo/logo-v3-ie.png) no-repeat \9;
+    background-size: 147px 42px;
+    display: block;
+    width: 147px;
+    height: 42px;
+    float: left;
+    margin: 6px 5px 0 0
+}
+
+.ico-nav-new {
+    position: absolute;
+    right: 5px;
+    top: 8px;
+    width: 9px;
+    height: 12px;
+    background: url(//static.nowcoder.com/images/img/icons/ico-new.png) no-repeat
+}
+
+.nowcoder-navbar {
+    float: left
+}
+
+.nowcoder-other-nav {
+    float: right
+}
+
+.nowcoder-other-nav li {
+    position: relative
+}
+
+.nowcoder-other-nav > li:after {
+    content: "|";
+    position: absolute;
+    right: 0;
+    top: 16px;
+    color: #8a96a7
+}
+
+.nowcoder-other-nav .profile-item:after {
+    display: none
+}
+
+.nowcoder-other-nav .profile-item:hover:after {
+    display: block;
+    content: "";
+    bottom: -1px;
+    right: 24px;
+    border: 6px solid #fff;
+    border-color: transparent transparent #fff
+}
+
+.nowcoder-other-nav [class^=icon-]:before {
+    margin-right: 5px;
+    vertical-align: middle
+}
+
+.nowcoder-other-nav .icon-mobile-phone:before {
+    font-size: 20px
+}
+
+.nowcoder-navbar li {
+    float: left;
+    text-align: center;
+    height: 54px;
+    position: relative
+}
+
+.nowcoder-navbar a {
+    color: #ccc;
+    font-size: 16px;
+    display: block;
+    line-height: 53px;
+    padding: 0 10px
+}
+
+.nowcoder-navbar .active a, .nowcoder-navbar a:hover {
+    color: #fff;
+    text-decoration: none
+}
+
+.nowcoder-navbar li.active, .nowcoder-navbar li:hover {
+    background-color: #31363d
+}
+
+.nowcoder-navbar .nav-profile {
+    position: relative;
+    z-index: 2
+}
+
+.nowcoder-navbar .nav-profile .img-box {
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    width: 36px;
+    height: 36px;
+    overflow: hidden;
+    vertical-align: middle;
+    -webkit-border-radius: 22px;
+    -moz-border-radius: 22px;
+    border-radius: 22px
+}
+
+.nowcoder-navbar .nav-profile img {
+    width: 36px;
+    display: block
+}
+
+.nav-msg-tips {
+    left: 20px;
+    position: absolute;
+    background: #e84a4a;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    top: 18px
+}
+
+.nav-msg-num {
+    display: block;
+    position: absolute;
+    background: #e84a4a;
+    color: #fff;
+    border-radius: 50px;
+    line-height: 14px;
+    min-height: 16px;
+    outline: medium none;
+    padding: 0 4px;
+    font-size: 12px;
+    text-align: center;
+    left: 20px;
+    top: 8px
+}
+
+.nav-msg-num.msg-dot {
+    min-height: 8px;
+    top: 16px
+}
+
+.nowcoder-navbar li:hover .sub-nav {
+    display: block
+}
+
+.nowcoder-navbar .sub-nav {
+    display: none;
+    position: absolute;
+    top: 54px;
+    left: 0;
+    border-top: 1px solid #272b31
+}
+
+.nowcoder-navbar .sub-nav li {
+    height: auto;
+    border: none;
+    width: 100%;
+    *width: 134px;
+    background: #31363d
+}
+
+.nowcoder-navbar .sub-nav a {
+    line-height: 36px;
+    color: #ccc;
+    white-space: nowrap
+}
+
+.nowcoder-navbar .sub-nav a:hover {
+    color: #fff
+}
+
+.nowcoder-navbar .profile-item .nav-coins, .nowcoder-navbar .profile-item .nav-out, .nowcoder-navbar .profile-item .nav-profile-page, .nowcoder-navbar .profile-item .nav-set, .profile-item .icon-resume {
+    background: url(//static.nowcoder.com/images/img/icons/ico-nav3.png) 15px -98px no-repeat;
+    padding-left: 35px
+}
+
+.nowcoder-navbar .profile-item .nav-set {
+    background-position: 15px -99px
+}
+
+.nowcoder-navbar .profile-item a:hover.nav-set {
+    background-position: 15px 10px
+}
+
+.nowcoder-navbar .profile-item .nav-out {
+    background-position: 15px -135px
+}
+
+.nowcoder-navbar .profile-item a:hover.nav-out {
+    background-position: 15px -27px
+}
+
+.nowcoder-navbar .profile-item .nav-coins {
+    background-position: 18px -205px
+}
+
+.nowcoder-navbar .profile-item a:hover.nav-coins {
+    background-position: 18px -240px
+}
+
+.nowcoder-navbar .profile-item .nav-profile-page {
+    background-position: 18px -273px
+}
+
+.nowcoder-navbar .profile-item a:hover.nav-profile-page {
+    background-position: 18px -306px
+}
+
+.nowcoder-navbar .profile-item .icon-resume {
+    background-position: 18px -341px
+}
+
+.nowcoder-navbar .profile-item a:hover.icon-resume {
+    background-position: 18px -375px
+}
+
+.nowcoder-other-nav a {
+    font-size: 14px
+}
+
+.nowcoder-navbar .nav-search {
+    height: auto;
+    margin-right: 5px;
+    position: relative
+}
+
+.nav-search-wrap {
+    position: absolute;
+    left: 0;
+    top: 54px;
+    background: #31363d;
+    padding: 10px;
+    display: none
+}
+
+.nav-search:hover .nav-search-wrap {
+    display: block
+}
+
+.nav-search .nav-search-txt {
+    width: 180px;
+    height: 25px;
+    padding: 0 5px;
+    line-height: 25px;
+    background: #fff;
+    border: none;
+    border-radius: 0;
+    -webkit-transition: background-color .4s;
+    -moz-transition: background-color .4s;
+    transition: background-color .4s
+}
+
+.nav-search-ico.icon-search {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    height: 25px;
+    width: 25px;
+    text-align: center;
+    line-height: 25px;
+    color: #fff;
+    font-size: 14px;
+    background: #0b9
+}
+
+.nav-search-tips {
+    position: absolute;
+    background: #fff;
+    box-shadow: 0 2px 2px #eee;
+    width: 165px;
+    top: 90px;
+    left: 10px
+}
+
+.nav-search-tips a {
+    line-height: 26px;
+    font-size: 12px;
+    color: #666;
+    text-align: left;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 135px;
+    word-wrap: normal
+}
+
+.nav-search-tips a.hover {
+    background: #efefef
+}
+
+.nav-search.onfocus .nav-search-txt {
+    background: #fff
+}
+
+.nav-search-tips a:hover {
+    color: #333;
+    background: #eee
+}
+
+.newnav-search-wrap {
+    position: absolute;
+    z-index: 1000;
+    left: 25px;
+    top: 0;
+    background: #31363d;
+    height: 34px;
+    padding: 10px 10px 10px 0;
+    display: none
+}
+
+.nowcoder-navbar .newnav-search.onfocus, .nowcoder-navbar .newnav-search:hover {
+    background: #363c43
+}
+
+.newnav-search.onfocus .newnav-search-wrap, .newnav-search:hover .newnav-search-wrap {
+    display: block;
+    background: #363c43
+}
+
+.newnav-search.onfocus .icon-search, .newnav-search:hover .icon-search {
+    color: #00bc9b
+}
+
+.newnav-search-wrap .nav-search-txt, .newnav-search.onfocus .nav-search-txt {
+    background: 0 0;
+    color: #fff;
+    line-height: 32px;
+    height: 32px;
+    width: 150px;
+    transition: background-color 0s
+}
+
+.newnav-search-cont {
+    margin-left: -22px;
+    padding-left: 18px;
+    padding-right: 15px;
+    border-bottom: 1px solid #00bc9b
+}
+
+.newnav-search-cont .icon-search-colse {
+    padding: 0;
+    position: absolute;
+    right: 15px;
+    top: 20px;
+    width: 9px;
+    height: 9px;
+    background: url(//static.nowcoder.com/images/img/icons/icon-search-colse.png) no-repeat
+}
+
+.nav-account {
+    background: #ff411c;
+    border-radius: 20px;
+    color: #fff;
+    line-height: 24px;
+    float: right;
+    padding: 2px 0;
+    margin-top: 12px;
+    margin-left: 10px;
+    white-space: nowrap
+}
+
+.nav-account:hover {
+    background: #fe6000
+}
+
+.nav-account a {
+    display: inline-block;
+    color: #fff;
+    font-size: 14px;
+    padding: 0 20px
+}
+
+.nav-account a:hover {
+    color: #fff
+}
+
+.nav-account .nav-account-login {
+    padding: 0 3px 0 20px
+}
+
+.nav-account .nav-account-reg {
+    padding: 0 20px 0 3px
+}
+
+.profile-item:hover {
+    cursor: pointer
+}
+
+.profile-item:hover .profile-hover-wrapper {
+    display: block
+}
+
+.profile-hover-wrapper {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 54px;
+    font-size: 14px;
+    background: #fff;
+    width: 260px;
+    padding: 10px;
+    box-shadow: 0 0 4px rgba(0, 0, 0, .2);
+    border-radius: 4px;
+    border: 1px solid #eee
+}
+
+.profile-hover-info {
+    text-align: left;
+    border-bottom: 1px solid #e8eaed;
+    padding-bottom: 10px
+}
+
+.profile-hover-info .identity-hr-icon14 {
+    vertical-align: text-top
+}
+
+.profile-hover-name {
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    vertical-align: middle;
+    text-overflow: ellipsis;
+    max-width: 10em
+}
+
+.profile-hover-wrapper .profile-hover-btn, .profile-hover-wrapper .profile-hover-btn:hover {
+    display: inline-block;
+    border: 1px solid #25bb9b;
+    padding: 4px 5px;
+    font-size: 12px;
+    float: right;
+    border-radius: 4px;
+    color: #25bb9b;
+    line-height: 1
+}
+
+.item-profile-box {
+    margin-right: -10px;
+    text-align: left;
+    padding: 10px 0
+}
+
+.profile-hover-wrapper .item-profile {
+    display: inline-block;
+    vertical-align: top;
+    width: 76px;
+    height: 50px;
+    padding: 13px 0;
+    color: #6f6f6f;
+    line-height: 1;
+    text-align: center;
+    margin: 0 10px 0 0
+}
+
+.profile-hover-wrapper .item-profile:hover {
+    background: #f5f5f5;
+    border-radius: 4px;
+    color: #6f6f6f
+}
+
+.hover-item-ico {
+    background: url(//static.nowcoder.com/images/img/home/icon-person.png) no-repeat;
+    width: 24px;
+    height: 22px;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    display: block
+}
+
+.hover-item-ico1 {
+    background-position: 0 0
+}
+
+.hover-item-ico2 {
+    background-position: -24px 0
+}
+
+.hover-item-ico3 {
+    background-position: -48px 0
+}
+
+.hover-item-ico4 {
+    background-position: -73px 0
+}
+
+.hover-item-ico5 {
+    background-position: -98px 0
+}
+
+.hover-item-ico6 {
+    background-position: -123px 0
+}
+
+.hover-accout-wrapper {
+    border-top: 1px solid #e8eaed
+}
+
+.hover-accout-wrapper a {
+    color: #8a96a7;
+    display: inline-block;
+    width: 45%;
+    padding: 15px 2% 10px;
+    line-height: 1
+}
+
+.hover-accout-wrapper a:hover {
+    color: #25bb9b
+}
+
+.hover-accout-icon, .hover-accout-logout {
+    display: inline-block;
+    vertical-align: middle;
+    width: 16px;
+    height: 16px;
+    margin-bottom: 0;
+    margin-right: 10px;
+    background-position: -153px 0
+}
+
+.hover-accout-wrapper a:hover .hover-accout-icon {
+    background-position: -195px 0
+}
+
+.hover-accout-logout {
+    background-position: -174px 0
+}
+
+.hover-accout-wrapper a:hover .hover-accout-logout {
+    background-position: -216px 0
+}
+
+.written-video {
+    display: none;
+    position: absolute;
+    background: #3d444c;
+    padding: 5px;
+    line-height: 1.6;
+    right: 0
+}
+
+.written-video a {
+    margin-top: 5px;
+    font-size: 14px;
+    color: #fff
+}
+
+.written-video a:hover {
+    color: #25bb9b
+}
+
+.written-video-inner {
+    background: #a8b2bd;
+    width: 125px;
+    height: 94px;
+    display: block
+}
+
+.ico-change-video, .ico-video-sm {
+    display: inline-block;
+    vertical-align: text-bottom;
+    width: 22px;
+    height: 18px;
+    margin-right: 5px;
+    background: url(//static.nowcoder.com/fe/style/images/common/img/icons/ico-camera.png) no-repeat
+}
+
+.ico-video-sm {
+    background-position: -57px 0
+}
+
+a:hover .ico-change-video {
+    background-position: -29px 0
+}
+
+.nav-search-box {
+    display: none;
+    position: absolute;
+    z-index: 1001;
+    background: #fff;
+    box-shadow: 0 3px 4px rgba(0, 0, 0, .2);
+    width: 200px;
+    top: 53px;
+    left: 0;
+    font-size: 14px
+}
+
+.nav-search-box dl {
+    margin-bottom: 10px;
+    text-align: left
+}
+
+.nav-search-box dt {
+    font-weight: 700;
+    border-bottom: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 5px;
+    position: relative
+}
+
+.nav-search-box dt:hover .icon-nc-delete {
+    display: block
+}
+
+.nav-search-box dt .icon-nc-delete {
+    display: none;
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    margin-right: 0
+}
+
+.nav-search-box dd {
+    color: #404040;
+    padding: 0 10px;
+    position: relative
+}
+
+.nav-search-box dd:hover {
+    background: #f5f5f5;
+    cursor: pointer
+}
+
+.nav-search-box dd:hover .icon-nc-close {
+    display: block
+}
+
+.nav-search-box a {
+    color: #404040;
+    display: inline-block;
+    line-height: 30px;
+    padding: 0;
+    display: inline-block;
+    vertical-align: middle;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-wrap: normal;
+    max-width: 75%
+}
+
+.nav-search-box a:hover {
+    color: #25bb9b
+}
+
+.nav-search-box .icon-nc-close {
+    position: absolute;
+    display: none;
+    right: 0;
+    top: 0;
+    font-size: 12px
+}
+
+.nav-search-box .nav-ad-tag {
+    border: 1px solid #cbcbcb;
+    display: inline-block;
+    padding: 0 2px;
+    vertical-align: middle;
+    color: #bbb;
+    font-size: 12px;
+    margin-left: 5px;
+    background: #fff;
+    line-height: 16px;
+    border-radius: 2px;
+    position: relative
+}
+
+.nav-search-more {
+    background: #f5f5f5;
+    color: #7d7d7d;
+    display: inline-block;
+    vertical-align: middle;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-wrap: normal;
+    max-width: 100%;
+    display: block;
+    line-height: 36px
+}
+
+.nav-search-more:hover {
+    color: #25bb9b
+}
+
+.nowcoder-navbar .nav-search-wrapper:hover {
+    background: 0 0
+}
+
+.nowcoder-navbar .nav-search-wrapper:after {
+    display: none
+}
+
+.nowcoder-navbar .nav-search-wrapper .search-input-wrap {
+    margin-top: 8px;
+    background: #31363e;
+    height: 34px;
+    line-height: 34px;
+    overflow: hidden;
+    border: none;
+    border-radius: 3px
+}
+
+.nowcoder-navbar .nav-search-wrapper .search-input-wrap input {
+    color: #fff;
+    background: #31363e;
+    padding: 5px
+}
+
+.nowcoder-navbar .nav-search-wrapper .search-input-wrap .icon-search-btn {
+    border-radius: 0 3px 3px 0;
+    height: 34px;
+    line-height: 34px;
+    width: auto;
+    padding: 0 5px 0 8px
+}
+
+.nowcoder-navbar .nav-search-wrapper .search-input-wrap .icon-search-btn:before {
+    display: none
+}
+
+.focus .icon-search-btn {
+    background: #25bb9b;
+    color: #fff
+}

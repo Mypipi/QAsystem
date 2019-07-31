@@ -1,13 +1,13 @@
 package design.cyp.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import redis.clients.jedis.Jedis;
+import design.cyp.util.MailUtil;
 
 public class Test {
 
     public static void main(String[] argv) {
-        String url = "<a href= http:127.0.0.1:8080/question/" + 105 + ">点击查看详情</a>";
-        System.out.println(url);
+        String to = "277832294@qq.com";
+        String subject = "测试邮件";
+        String content = "zzzzzzzz";
 
 
     }

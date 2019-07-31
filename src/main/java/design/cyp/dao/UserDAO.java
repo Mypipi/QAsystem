@@ -13,13 +13,13 @@ public interface UserDAO {
     String INSERT_FIELDS = " name, password, salt, head_url ";
     String SELECT_FIELDS = " id ," + INSERT_FIELDS;
 
-    @Insert({"insert into ", TABLE_NAME, " (", INSERT_FIELDS, ") values (#{name},#{password},#{salt},#{headUrl})"})
-//从User的对应属性中读取
+    //从User的对应属性中读取
 //用+拼接，与用，拼接的问题？
+    @Insert({"insert into ", TABLE_NAME, " (", INSERT_FIELDS, ") values (#{name},#{password},#{salt},#{headUrl})"})
     int addUser(User user);
 
+    //这贱东西害我浪费快一个小时debug
     @Select({"select", SELECT_FIELDS, "from", TABLE_NAME, "where id = #{id}"})
-//这贱东西害我浪费快一个小时debug
     User selectById(int id);
 
 

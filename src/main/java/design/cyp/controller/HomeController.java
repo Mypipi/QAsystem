@@ -61,7 +61,7 @@ public class HomeController {
     }
 
     //主页面
-    @RequestMapping(path = {"/index", "/"}, method = RequestMethod.GET)
+    @RequestMapping(path = {"/index", "/"}, method = {RequestMethod.POST,RequestMethod.GET})
     public String index(Model model) {
 
         model.addAttribute("vos", getQuestions(0, 0, 10));//用来添加到前端
