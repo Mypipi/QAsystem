@@ -6793,7 +6793,7 @@ header.navbar .navbar-toggle .icon-bar {
 }
 
 .letter-chat .chat-content {
-    width: 300px;
+    width: 80%;
     line-height: 1.6;
     font-size: 14px;
 }

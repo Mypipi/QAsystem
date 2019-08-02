@@ -10,13 +10,14 @@
     <meta http-equiv="X-ZA-Response-Id" content="46acde5c53db46f2806ccad726de9826">
     <link rel="icon" type="image/x-icon"
           href="https://cdn.jsdelivr.net/gh/Mypipi/WorldPress@v1.1/cyp.xyz/picture/tree.png">
-    <title>首页 - 问答</title>
+    <title>首页 - 讨论区</title>
     <meta name="apple-itunes-app" content="app-id=432274380">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta http-equiv="mobile-agent" content="format=html5;url=#">
     <meta id="znonce" name="znonce" content="d3edc464cf014708819feffde7ddd01e">
     <link rel="search" type="application/opensearchdescription+xml" href="#" title="牛">
     <link rel="stylesheet" type="text/css" href="/styles/bootstrap.min.css">
+
 
     <style>
         .zm-item-answer-author-info a.collapse {
@@ -29,8 +30,9 @@
 <div role="navigation" class="zu-top">
     <div class="zg-wrap modal-shifting clearfix" id="zh-top-inner">
         <a href="https://cyp.design" class="zu-top-link-logo" id="zh-top-link-logo" data-za-c="view_home"
-           data-za-a="visit_home" data-za-l="top_navigation_zhihu_logo">牛客</a>
+           data-za-a="visit_home" data-za-l="top_navigation_zhihu_logo">CYP</a>
         <div class="top-nav-profile">
+
         <#--user??判断不为空,!user??判断为空-->
             <#if !user??>
 
@@ -76,17 +78,8 @@
         </div>
         <button class="zu-top-add-question" id="zu-top-add-question">提问</button>
 
-        <div role="search" id="zh-top-search" class="zu-top-search">
-            <form method="GET" action="#" id="zh-top-search-form" class="zu-top-search-form">
-                <input type="hidden" name="type" value="content">
-                <label for="q" class="hide-text">搜索</label><input type="text" class="zu-top-search-input" id="q"
-                                                                  name="q" autocomplete="off" value=""
-                                                                  placeholder="搜索你感兴趣的内容..." role="combobox"
-                                                                  aria-autocomplete="list">
-                <button type="submit" class="zu-top-search-button"><span class="hide-text">搜索</span><span
-                        class="sprite-global-icon-magnifier-dark"></span></button>
-            </form>
-        </div>
+
+
         <div id="zg-top-nav" class="zu-top-nav">
             <ul class="zu-top-nav-ul zg-clear">
                 <li class="zu-top-nav-li current" id="zh-top-nav-home">
@@ -194,5 +187,19 @@
                 </div>
             </div>
         </div>
+        <div role="search" id="zh-top-search" class="zu-top-search">
+            <form method="GET" action="#" id="zh-top-search-form" class="zu-top-search-form">
+                <input type="hidden" name="type" value="content">
+                <label for="q" class="hide-text">搜索</label><input type="text" class="zu-top-search-input" id="q"
+                                                                  name="q" autocomplete="off" value=""
+                                                                  placeholder="搜索你感兴趣的内容..." role="combobox"
+                                                                  aria-autocomplete="list">
+                <button type="submit" class="zu-top-search-button"><span class="hide-text">搜索</span><span
+                            class="sprite-global-icon-magnifier-dark"></span></button>
+            </form>
+        </div>
+
+
     </div>
 </div>
+

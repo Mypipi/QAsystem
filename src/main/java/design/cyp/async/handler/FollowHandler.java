@@ -26,21 +26,25 @@ public class FollowHandler implements EventHandler {
     UserService userService;
 
 
+
     @Override
     public void doHandler(EventModel eventModel) {
+
         Message message = new Message();
         message.setFromId(QAUtil.SYSTEM_USER);
         message.setToId(eventModel.getEntityOwnerId());
         message.setCreatedDate(new Date());
         User user = userService.getUser(eventModel.getActorId());
+
         if (eventModel.getEntityType() == EntityType.ENTITY_QUESTION) {
-            message.setContent("用户" +user.getName()+
-                    "关注了你的问题，http://127.0.0.1:8080/question/"+eventModel.getEntityId());
+            String url = "<a href= http://127.0.0.1:8080/question/" + eventModel.getEntityId() + ">点击查看详情</a>";
+            message.setContent("用户" +user.getName()+ "关注了你的问题 "+url);
         }else if (eventModel.getEntityType() == EntityType.ENTITY_USER) {
-            message.setContent("用户"+ user.getName()+
-                    "关注了你，http://127.0.0.1:8080/user/" + eventModel.getActorId());
+            String url = "<a href= http://127.0.0.1:8080/user/" + eventModel.getActorId() + ">点击查看详情</a>";
+            message.setContent("用户"+ user.getName()+ "关注了你 "+url);
         }
         messageService.addMessage(message);
+        System.out.println(user.getName()+" "+user.getId());
     }
 
     @Override

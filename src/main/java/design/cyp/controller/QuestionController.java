@@ -76,7 +76,7 @@ public class QuestionController {
     public String questionDetail(Model model,
                                  @PathVariable("qid") int qid) {
 
-        Question question = questionService.selectById(qid);
+        Question question = questionService.getById(qid);
         model.addAttribute("question", question);
         List<Comment> commentList = commentService.getCommentsByEntity(qid, EntityType.ENTITY_QUESTION);
         List<ViewObject> comments = new ArrayList<ViewObject>();
@@ -95,6 +95,7 @@ public class QuestionController {
             comments.add(viewObject);
         }
         model.addAttribute("comments", comments);
+
         List<ViewObject> followUsers = new ArrayList<>();
         List<Integer> users = followService.getFollowers(EntityType.ENTITY_QUESTION,qid,20);
         for (Integer userId : users) {

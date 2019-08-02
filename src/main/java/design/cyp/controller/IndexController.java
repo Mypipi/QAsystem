@@ -20,7 +20,7 @@ public class IndexController {
     @RequestMapping(path = {"/", "index"})//指定虚拟路径来访问
     @ResponseBody//返回下面的东西
     public String index() {
-        logger.info("Visit hmoe");
+        logger.info("Visit home");
         return "hello";
     }
 

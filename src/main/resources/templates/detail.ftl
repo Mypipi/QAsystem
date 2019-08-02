@@ -74,7 +74,7 @@
                         <meta itemprop="answer-url-token" content="66862039">
                         <a class="zg-anchor-hidden" name="answer-22162611"></a>
 
-                        <div class="zm-votebar goog-scrollfloater js-vote" data-id="${comment.comment.id!}">
+                        <div class="zm-votebar goog-scrollfloater js-vote" data-id="${comment.comment.id?c!}">
 
                             <#if ($comment.liked > 0)>
                             <button class="up js-like pressed" title="赞同">
@@ -97,15 +97,16 @@
                         </div>
                         <div class="answer-head">
                             <div class="zm-item-answer-author-info">
-                                <a class="zm-item-link-avatar avatar-link" href="" target="_blank"
+                                <a class="zm-item-link-avatar avatar-link" href="/user/${comment.user.id}" target="_blank"
                                    data-tip="p$t$yingxiaodao">
                                     <img src="${comment.user.headUrl}" class="zm-list-avatar avatar"></a>
+
                                 <a class="author-link" data-tip="p$t$yingxiaodao" target="_blank"
-                                   href="">${comment.user.name}</a>
+                                   href="/user/${comment.user.id}">${comment.user.name}</a>
                             </div>
                             <div class="zm-item-vote-info">
                                 <span class="voters text">
-                                    <a href="" class="more text"><span class="js-voteCount">${comment.likeCount!}</span>&nbsp;人赞同</a>
+                                    <a href="javascript:void(0)" class="more text"><span class="js-voteCount">${comment.likeCount!}</span>&nbsp;人赞同</a>
                                 </span>
                             </div>
                         </div>
@@ -121,7 +122,8 @@
                         <div class="zm-item-meta answer-actions clearfix js-contentActions">
                             <div class="zm-meta-panel">
                                 <a itemprop="url" class="answer-data-link meta-item" target="_blank"
-                                   href="">发布于 ${(comment.comment.createdDate?string("yyyy-MM-dd HH:mm:ss"))!}</a>
+                                   href="javascript:void(0)">发布于 ${(comment.comment.createdDate?string("yyyy-MM-dd HH:mm:ss"))!}</a>
+
                                 <a href="" name="addcomment" class="meta-item toggle-comment js-toggleCommentBox">
                                     <i class="z-icon-comment"></i>4 条评论</a>
 

@@ -36,4 +36,7 @@ public interface QuestionDAO {
     @Select({"select",SELECT_FIELDS,"from",TABLE_NAME,"where id = #{id}"})
     Question getById(int id);
 
+    @Select({"select",SELECT_FIELDS,"from",TABLE_NAME})
+    List<Question> getAllQuestions();
+
 }

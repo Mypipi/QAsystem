@@ -14,4 +14,14 @@ public class ViewObject {
     public Object get(String key) {
         return objectMap.get(key);
     }
+
+    public Map<String, Object> getObjectMap() {
+        return objectMap;
+    }
+
+    public void setObjectMap(Map<String, Object> objectMap) {
+        this.objectMap = objectMap;
+    }
+
+
 }

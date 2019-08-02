@@ -891,7 +891,7 @@ html.no-touchevents .zg-link-gray:hover,html.no-touchevents .zg-link-gray-normal
 }
 @media (max-width:767px) {
     .zg-wrap {
-    width:auto;
+    /*width:auto;*/
     padding-left:6px;
     padding-right:6px
 }
@@ -7846,7 +7846,7 @@ a>.invisible {
     padding-top:0!important
 }
 .zu-top {
-    position:static
+    /*position:static*/
 }
 .zu-top .modal-shifting {
     position:static!important
@@ -9304,7 +9304,7 @@ html.no-touchevents a:hover .zg-icon-comment-reply,html.no-touchevents button:ho
     margin-left:10px
 }
 .zh-add-question-form .editable {
-    min-height:66px
+    min-height:168px
 }
 .zh-add-question-form .add-question-splash-page {
     display:none

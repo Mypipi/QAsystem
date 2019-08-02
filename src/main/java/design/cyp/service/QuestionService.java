@@ -35,6 +35,10 @@ public class QuestionService {
         return questionDAO.selectLatestQuestions(userId, offset, limit);//获取查询结果
     }
 
+    public List<Question> getAllQuestions() {
+        return questionDAO.getAllQuestions();//获取查询结果
+    }
+
     public int updateCommentCount(int id, int count) {
         return questionDAO.updateCommentCount(id, count);
     }
