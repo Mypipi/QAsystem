@@ -90,7 +90,6 @@ public class HomeController {
         model.addAttribute("vos",page);
 
         hostHolder.getUser();
-        System.out.println(pageInfo.toString());
         return "index";
     }
 
