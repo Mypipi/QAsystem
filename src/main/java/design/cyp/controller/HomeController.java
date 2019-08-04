@@ -65,6 +65,9 @@ public class HomeController {
         return "profile";
     }
 
+
+
+
 //    //主页面
 //    @RequestMapping(path = {"/index", "/"}, method = {RequestMethod.POST,RequestMethod.GET})
 //    public String index(Model model) {
@@ -110,6 +113,7 @@ public class HomeController {
         return vos;
 
     }
+
 
     private List<ViewObject> getQuestions() {
         List<Question> questionList = questionService.getAllQuestions();//获取10个

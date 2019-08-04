@@ -1,6 +1,5 @@
 <#include "header.ftl">
-<link rel="stylesheet" href="../../styles/result.css">
-<link rel="stylesheet" href="../../styles/detail.css">
+
     <div id="main">
         <div class="zg-wrap zu-main clearfix ">
             <div class="zm-profile-section-wrap zm-profile-followee-page">
@@ -54,5 +53,5 @@
         </div>
     </div>
 <#include "js.ftl">
-<script type="text/javascript" src="/scripts/main/site/profile.js"></script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/gh/Mypipi/static@v3.0/scripts/main/site/profile.js"></script>
 <#include "footer.ftl">

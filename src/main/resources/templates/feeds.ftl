@@ -28,7 +28,7 @@
                         -->
                     <div class="zm-item-answer-author-info">
                         <a class="author-link" data-tip="p$b$amuro1230" target="_blank" href="/user/${vo.userId!}">${vo.userName!}</a>
-                        评论了该问题 ，${(vo.question.createdDate?string("yyyy-MM-dd HH:mm:ss"))!}</div>
+                        评论了该问题 ，${(vo.createdDate?string("yyyy-MM-dd HH:mm:ss"))!}</div>
                     <!--
                     <div class="zm-item-vote-info" data-votecount="4168" data-za-module="VoteInfo">
                         <span class="voters text">
@@ -37,7 +37,7 @@
                     </div>
                     -->
                     <div class="zm-item-rich-text expandable js-collapse-body" data-resourceid="123114" data-action="/answer/content" data-author-name="李淼" data-entry-url="/question/19857995/answer/13174385">
-                        <div class="zh-summary summary clearfix">${vo.questionTitle}</div>
+                        <a href="/question/${vo.questionId}"><div class="zh-summary summary clearfix">${vo.questionTitle}</div></a>
                     </div>
                 </div>
                 <!--
@@ -91,7 +91,7 @@
                         -->
                     <div class="zm-item-answer-author-info">
                         <a class="author-link" data-tip="p$b$amuro1230" target="_blank" href="/user/${vo.userId!}">${vo.userName!}</a>
-                        关注了该问题 ，${(vo.question.createdDate?string("yyyy-MM-dd HH:mm:ss"))!}</div>
+                        关注了该问题 ，${(vo.createdDate?string("yyyy-MM-dd HH:mm:ss"))!}</div>
                     <!--
                     <div class="zm-item-vote-info" data-votecount="4168" data-za-module="VoteInfo">
                         <span class="voters text">
@@ -100,7 +100,7 @@
                     </div>
                     -->
                     <div class="zm-item-rich-text expandable js-collapse-body" data-resourceid="123114" data-action="/answer/content" data-author-name="李淼" data-entry-url="/question/19857995/answer/13174385">
-                        <div class="zh-summary summary clearfix">${vo.questionTitle}</div>
+                        <a href="/question/${vo.questionId}"><div class="zh-summary summary clearfix">${vo.questionTitle}</div></a>
                     </div>
                 </div>
                 <!--
@@ -128,8 +128,7 @@
 
 
 
-<link rel="stylesheet" href="../styles/index.css">
-<link rel="stylesheet" href="../styles/detail.css">
+
     <div class="zg-wrap zu-main clearfix " role="main">
         <div class="zu-main-content">
             <div class="zu-main-content-inner">
@@ -145,7 +144,7 @@
                     <div id="js-home-feed-list" class="zh-general-list topstory clearfix" data-init="{&quot;params&quot;: {}, &quot;nodename&quot;: &quot;TopStory2FeedList&quot;}" data-delayed="true" data-za-module="TopStoryFeedList">
 
 
-                        <#list feeds as vo>
+                        <#list page.list as vo>
 
                             <#if vo.type == 1>
 
@@ -156,10 +155,41 @@
                             </#if>
                         </#list>
                     </div>
-                    <a href="javascript:;" id="zh-load-more" data-method="next" class="zg-btn-white zg-r3px zu-button-more" style="">更多</a></div>
+                    <div class="pagination">
+                        <ul data-total="100">
+                            <li class="txt-pager js-first-pager"><a data-page="1" href="?start=${page.navigateFirstPage}">首页</a></li>
+
+                            <#if page.isFirstPage>
+                                <li class="txt-pager disabled js-pre-pager"><a data-page="1" href="javascript:void(0)">上一页</a></li>
+                            <#else >
+                                <li class="txt-pager js-pre-pager"><a data-page="1" href="?start=${page.pageNum-1}">上一页</a></li>
+                            </#if>
+
+                            <#list page.navigatepageNums as num>
+                                <#if page.pageNum = num>
+                                    <li class="active js-1-pager"><a href="?start=${num}" data-page="1">${num}</a></li>
+                                <#else >
+                                    <li class="js-1-pager"><a href="?start=${num}" data-page="1">${num}</a></li>
+                                </#if>
+                            </#list>
+
+
+
+                            <#if page.isLastPage>
+                                <li class="txt-pager js-next-pager disabled"><a href="javascript:void(0)" data-page="2" ">下一页</a></li>
+                            <#else >
+                                <li class="txt-pager js-next-pager"><a href="?start=${page.pageNum+1}">下一页</a></li>
+                            </#if>
+
+
+                            <li class="txt-pager js-last-pager"><a data-page="100" href="?start=${page.pages}">末页</a></li>
+
+
+                        </ul>
+                    </div>
             </div>
         </div>
     </div>
 <#include "js.ftl">
-<script type="text/javascript" src="/scripts/main/site/detail.js"></script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/gh/Mypipi/static@v3.0/scripts/main/site/detail.js"></script>
 <#include "footer.ftl">

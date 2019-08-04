@@ -9,14 +9,14 @@
     <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0">
     <title>与世界分享你的知识、经验和见解</title>
     <link rel="dns-prefetch" href="">
-    <link rel="stylesheet" href="../styles/login.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/Mypipi/static@v3.0/styles/login.css">
 
 </head>
 <body class="zhi  no-auth">
 <div class="index-main">
     <div class="index-main-body">
         <div class="index-header">
-            <h1 class="logo hide-text"><img src="../images/res/nk.png" alt=""></h1>
+            <h1 class="logo hide-text"><img src="//cdn.jsdelivr.net/gh/Mypipi/static@v2.0/tree.png" alt=""></h1>
             <h2 class="subtitle">
                 与世界分享你的知识、经验和见解
             </h2>

@@ -1,5 +1,8 @@
 package design.cyp.controller;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
+import com.sun.org.apache.xpath.internal.operations.Mod;
 import design.cyp.model.HostHolder;
 import design.cyp.model.Message;
 import design.cyp.model.User;
@@ -36,31 +39,77 @@ public class MessageController {
     private static final Logger logger = LoggerFactory.getLogger(MessageController.class);
 
     //消息详情界面
+//    @RequestMapping(path = {"/msg/detail"}, method = RequestMethod.GET)
+//    public String getConversationDetail(Model model,
+//                                        @RequestParam("conversationId") String conversationId) {
+//        try {
+//
+//            List<Message> messageList = messageService.getConversationDetail(conversationId, 0, 10);
+//            List<ViewObject> messages = new ArrayList<>();
+//            for (Message message : messageList) {
+//                ViewObject vo = new ViewObject();
+//                vo.set("message", message);
+//                User user = userService.getUser(message.getFromId());
+//                if (user == null) {
+//                    continue;
+//                }
+//                vo.set("headUrl", user.getHeadUrl());
+//                vo.set("userId", user.getId());
+//                messages.add(vo);
+//            }
+//            model.addAttribute("messages", messages);
+//
+//        } catch (Exception e) {
+//            logger.error("获取详情失败" + e.getMessage());
+//        }
+//        return "letterDetail";
+//    }
+
     @RequestMapping(path = {"/msg/detail"}, method = RequestMethod.GET)
     public String getConversationDetail(Model model,
-                                        @RequestParam("conversationId") String conversationId) {
+                                        @RequestParam("conversationId") String conversationId,
+                                        @RequestParam(value = "start", defaultValue = "1") int start,
+                                        @RequestParam(value = "size", defaultValue = "10") int size) {
         try {
+
             messageService.updateHasRead(conversationId);
-            List<Message> messageList = messageService.getConversationDetail(conversationId, 0, 10);
-            List<ViewObject> messages = new ArrayList<>();
-            for (Message message : messageList) {
-                ViewObject vo = new ViewObject();
-                vo.set("message", message);
-                User user = userService.getUser(message.getFromId());
-                if (user == null) {
-                    continue;
-                }
-                vo.set("headUrl", user.getHeadUrl());
-                vo.set("userId", user.getId());
-                messages.add(vo);
-            }
-            model.addAttribute("messages", messages);
+            PageHelper.startPage(start,size,"id desc");
+            List<Message> cs = messageService.getConversationDetail(conversationId);
+            PageInfo pageInfo = new PageInfo<>(cs);
+            model.addAttribute("page",pageInfo);
+
+            PageHelper.startPage(start,size,"id desc");
+            List<ViewObject> messages = getMessages(conversationId);
+            PageInfo page= new PageInfo<>(messages);
+            model.addAttribute("messages", page);
 
         } catch (Exception e) {
             logger.error("获取详情失败" + e.getMessage());
         }
         return "letterDetail";
     }
+
+
+    private List<ViewObject> getMessages(String conversationId) {
+
+        List<Message> messageList = messageService.getConversationDetail(conversationId);
+        List<ViewObject> messages = new ArrayList<>();
+        for (Message message : messageList) {
+            ViewObject vo = new ViewObject();
+            vo.set("message", message);
+            User user = userService.getUser(message.getFromId());
+            if (user == null) {
+                continue;
+            }
+            vo.set("headUrl", user.getHeadUrl());
+            vo.set("userId", user.getId());
+            messages.add(vo);
+        }
+
+        return messages;
+
+    }
+
 
     //私信界面
     @RequestMapping(path = {"/msg/list"}, method = RequestMethod.GET)
@@ -75,12 +124,14 @@ public class MessageController {
         for (Message message : conversationList) {
             ViewObject vo = new ViewObject();
             vo.set("conversation", message);
+            vo.set("lastMessage",messageService.getLastMessage(message.getConversationId()));
             int targetId = message.getFromId() == localUserId ? message.getToId() : message.getFromId();
             vo.set("user", userService.getUser(targetId));
             vo.set("unread", messageService.getConversationUnreadCount(localUserId, message.getConversationId()));
             conversations.add(vo);
         }
         model.addAttribute("conversations", conversations);
+
 
         return "letter";
     }

@@ -1,6 +1,9 @@
 package design.cyp.controller;
 
 import design.cyp.aspect.LogAspect;
+import design.cyp.async.EventModel;
+import design.cyp.async.EventProducer;
+import design.cyp.async.EventType;
 import design.cyp.model.Comment;
 import design.cyp.model.EntityType;
 import design.cyp.model.HostHolder;
@@ -34,6 +37,8 @@ public class CommentController {
     @Autowired
     QuestionService questionService;
 
+    @Autowired
+    EventProducer eventProducer;
     //添加评论
     @RequestMapping(path = {"/addComment"}, method = RequestMethod.POST)
     public String addComment(@RequestParam("questionId") int questionId,
@@ -63,6 +68,9 @@ public class CommentController {
             //计算评论数量
             int count = commentService.getCommentCount(comment.getEntityId(), comment.getEntityType());
             questionService.updateCommentCount(comment.getEntityId(), count);
+
+            eventProducer.fireEvent(new EventModel(EventType.COMMENT).setActorId(comment.getUserId())
+                    .setEntityId(questionId));
 
         } catch (Exception e) {
             logger.error("添加评论失败" + e.getMessage());

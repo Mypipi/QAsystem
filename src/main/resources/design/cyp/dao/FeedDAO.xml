@@ -21,6 +21,5 @@
             </foreach>
         </if>
         ORDER BY id DESC
-        LIMIT #{count}
     </select>
 </mapper>

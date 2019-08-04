@@ -1,5 +1,5 @@
 <#include "header.ftl">
-<link rel="stylesheet" href="../styles/letter.css">
+
     <div id="main">
         <div class="zg-wrap zu-main clearfix ">
             <ul class="letter-list">
@@ -17,9 +17,13 @@
                             删除
                             </a>
                             -->
+                                <a class="return-link" id="return-message" href="javascript:;" role="button">回复 </a>
+
+                                <span class="feed-legend-pipe">|</span>
                                 <a href="/msg/detail?conversationId=${conversation.conversation.conversationId}">
                                     共${conversation.conversation.id}条会话
                                 </a>
+
                             </div>
                         </div>
                         <div class="chat-headbox">
@@ -36,7 +40,7 @@
                             </a>
                             <p class="letter-brief">
                                 <a href="/msg/detail?conversationId=${conversation.conversation.conversationId}">
-                                    ${conversation.conversation.content}
+                                    ${conversation.lastMessage}
                                 </a>
                             </p>
                         </div>
@@ -47,5 +51,5 @@
         </div>
     </div>
 <#include "js.ftl">
-<script type="text/javascript" src="/scripts/main/site/detail.js"></script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/gh/Mypipi/static@v3.0/scripts/main/site/detail.js"></script>
 <#include "footer.ftl">

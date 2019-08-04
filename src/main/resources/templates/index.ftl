@@ -1,11 +1,4 @@
 <#include "header.ftl">
-<link rel="stylesheet" href="../styles/index.css">
-<link rel="stylesheet" href="../styles/detail.css">
-<link rel="stylesheet" href="../styles/globalb.css">
-<link rel="stylesheet" href="../styles/global.css">
-<link rel="stylesheet" href="../styles/ui.css">
-<link rel="stylesheet" href="../styles/base.css">
-<link rel="stylesheet" href="../styles/discuss.css">
 
 
 
@@ -16,7 +9,7 @@
                 <i class="zg-icon zg-icon-feedlist"></i>最新动态
                 <input type="hidden" id="is-topstory">
                 <span class="zg-right zm-noti-cleaner-setting" style="list-style:none">
-                        <a href="https://nowcoder.com/settings/filter" class="zg-link-gray-normal">
+                        <a href="javascript:;" class="zg-link-gray-normal">
                             <i class="zg-icon zg-icon-settings"></i>设置</a></span>
             </div>
 
@@ -26,31 +19,26 @@
                 <div class="nk-content">
                     <div class="module-box">
                         <div class="module-head clearfix">
-
-                            <h2>分享与求助</h2>
+                            <div class="module-head-oprt">
+                                <a class="btn btn-primary btn-b-publish nc-req-auth" id="addQuestion" href="javascript:;">
+                                    <i class="ico-submit"></i>
+                                    我要发布
+                                </a>
+                            </div>
+                            <h2>分享</h2>
                         </div>
 
-                        <div class="discuss-tab-wrap">
-                            <a href="#" class="discuss-tab selected">全部</a>
 
-                        </div>
                         <div class="menu-txt-box">
                             <ul class="menu-txt clearfix">
                                 <li class="selected">
-                                    <a href="#">最新回复</a>
-                                </li>
-
-                                <li>
                                     <a href="#">最新发表</a>
                                 </li>
                                 <li class="menu-pipe">|</li>
                                 <li>
-                                    <a href="#">最热</a>
+                                    <a href="">最新回复</a>
                                 </li>
-                                <li class="menu-pipe">|</li>
-                                <li>
-                                    <a href="#">精华</a>
-                                </li>
+
                             </ul>
                         </div>
                         <div class="module-body">
@@ -85,8 +73,7 @@
                                                     <span class="feed-legend-pipe">|</span>
                                                     <span>关注数<span
                                                                 class="feed-legend-num">${vo.followCount}</span></span>
-                                                    <span class="feed-legend-pipe">|</span>
-                                                    <span>浏览<span class="feed-legend-num">3100</span></span>
+
                                                 </div>
                                             </div>
                                         </div>
@@ -144,5 +131,5 @@
 
 <#include "js.ftl">
 
-<script type="text/javascript" src="/scripts/main/site/detail.js"></script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/gh/Mypipi/static@v3.0/scripts/main/site/detail.js"></script>
 <#include "footer.ftl">

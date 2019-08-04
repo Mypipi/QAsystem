@@ -1,5 +1,5 @@
 <#include "header.ftl">
-<link rel="stylesheet" href="../styles/detail.css">
+
 <div class="zg-wrap zu-main clearfix with-indention-votebar" itemscope="" itemtype="http://schema.org/Question"
      id="zh-single-question-page" data-urltoken="36301524" role="main">
     <div class="zu-main-content">
@@ -76,24 +76,23 @@
 
                         <div class="zm-votebar goog-scrollfloater js-vote" data-id="${comment.comment.id?c!}">
 
-                            <#if ($comment.liked > 0)>
-                            <button class="up js-like pressed" title="赞同">
+                            <#if (comment.liked > 0)>
+                            <a class="up js-like active" title="赞同">
                                 <#else >
-                                <button class="up js-like" title="赞同">
+                                <a class="up js-like" title="赞同">
                                     </#if>
-                                    <i class="icon vote-arrow"></i>
-                                    <span class="count js-voteCount">${comment.likeCount!}</span>
+                                    <i class="fa fa-thumbs-o-up"><span class="count js-voteCount">${comment.likeCount!}</span></i>
                                     <span class="label sr-only">赞同</span>
-                                </button>
+                                </a>
 
-                                <#if ($comment.liked < 0)>
-                                <button class="down js-dislike pressed" title="反对，不会显示你的姓名">
+                                <#if (comment.liked < 0)>
+                                <a class="down js-dislike pressed" title="反对，不会显示你的姓名">
                                     <#else >
-                                    <button class="down js-dislike" title="反对，不会显示你的姓名">
+                                    <a class="down js-dislike" title="反对，不会显示你的姓名">
                                         </#if>
-                                        <i class="icon vote-arrow"></i>
+                                        <i class="fa fa-thumbs-o-down"></i>
                                         <span class="label sr-only">反对，不会显示你的姓名</span>
-                                    </button>
+                                    </a>
                         </div>
                         <div class="answer-head">
                             <div class="zm-item-answer-author-info">
@@ -160,5 +159,5 @@
     </div>
 </div>
 <#include "js.ftl">
-<script type="text/javascript" src="/scripts/main/site/detail.js"></script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/gh/Mypipi/static@v3.0/scripts/main/site/detail.js"></script>
 <#include "footer.ftl">

@@ -1,5 +1,7 @@
 package design.cyp.controller;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import design.cyp.model.EntityType;
 import design.cyp.model.Feed;
 import design.cyp.model.HostHolder;
@@ -15,6 +17,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -51,15 +54,19 @@ public class FeedController {
     }
 
     @RequestMapping(path = {"/pullfeeds"}, method = {RequestMethod.GET, RequestMethod.POST})
-    private String getPullFeeds(Model model) {
+    private String getPullFeeds(Model model,
+                                @RequestParam(value = "start", defaultValue = "1") int start,
+                                @RequestParam(value = "size", defaultValue = "10") int size) {
         int localUserId = hostHolder.getUser() != null ? hostHolder.getUser().getId() : 0;
         List<Integer> followees = new ArrayList<>();
         if (localUserId != 0) {
             // 关注的人
             followees = followService.getFollowees(localUserId, EntityType.ENTITY_USER, Integer.MAX_VALUE);
         }
-        List<Feed> feeds = feedService.getUserFeeds(Integer.MAX_VALUE, followees, 10);
-        model.addAttribute("feeds", feeds);
+        PageHelper.startPage(start,size);
+        List<Feed> feeds = feedService.getUserFeeds(Integer.MAX_VALUE, followees);
+        PageInfo pageInfo = new PageInfo<>(feeds);
+        model.addAttribute("page", pageInfo);
         return "feeds";
     }
 }

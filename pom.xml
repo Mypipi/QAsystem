@@ -98,15 +98,38 @@
 			<artifactId>spring-boot-starter-mail</artifactId>
 		</dependency>
 
+
     </dependencies>
 
+
 	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
-		</plugins>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+				<excludes>
+					<exclude>static/report/**</exclude>
+					<exclude>**/*.woff</exclude>
+					<exclude>**/*.woff2</exclude>
+					<exclude>**/*.ttf</exclude>
+				</excludes>
+			</resource>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>false</filtering>
+				<includes>
+					<include>static/report/**</include>
+					<include>**/*.woff</include>
+					<include>**/*.woff2</include>
+					<include>**/*.ttf</include>
+				</includes>
+			</resource>
+		</resources>
+
 	</build>
 
+
 </project>
+
+
+

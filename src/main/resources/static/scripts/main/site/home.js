@@ -6,7 +6,9 @@
         initialize: fInitialize,
         binds: {
             'click #zu-top-add-question': fClickAdd,
-            'click #zh-top-nav-count-wrap': fClickMsg
+            'click #zh-top-nav-count-wrap': fClickMsg,
+            'click #return-message': fClickMsg,
+            'click #addQuestion':fClickAdd
         }
     });
 

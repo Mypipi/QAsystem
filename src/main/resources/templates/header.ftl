@@ -16,7 +16,11 @@
     <meta http-equiv="mobile-agent" content="format=html5;url=#">
     <meta id="znonce" name="znonce" content="d3edc464cf014708819feffde7ddd01e">
     <link rel="search" type="application/opensearchdescription+xml" href="#" title="牛">
-    <link rel="stylesheet" type="text/css" href="/styles/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/Mypipi/static@v3.2/styles/bootstrap.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/Mypipi/static@v3.2/styles/ui.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/Mypipi/static@v3.2/styles/letter.css">
+
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
 
     <style>
@@ -76,25 +80,26 @@
             </#if>
 
         </div>
-        <button class="zu-top-add-question" id="zu-top-add-question">提问</button>
 
 
 
         <div id="zg-top-nav" class="zu-top-nav">
             <ul class="zu-top-nav-ul zg-clear">
                 <li class="zu-top-nav-li current" id="zh-top-nav-home">
+
                     <a class="zu-top-nav-link" href="/" id="zh-top-link-home" data-za-c="view_home"
                        data-za-a="visit_home" data-za-l="top_navigation_home">首页</a>
                 </li>
                 <li class="zu-top-nav-li " id="zh-top-nav-explore">
                     <a class="zu-top-nav-link" href="/pullfeeds">发现</a>
                 </li>
+                <#if user??>
                 <li class="top-nav-noti zu-top-nav-li ">
-                    <a class="zu-top-nav-link" href="javascript:;" id="zh-top-nav-count-wrap" role="button"><span
-                            class="mobi-arrow"></span>消息<span id="zh-top-nav-count"
-                                                              class="zu-top-nav-count zg-noti-number"
-                                                              style="display: none;">0</span></a>
-                </li>
+                    <li class="top-nav-noti zu-top-nav-li ">
+                        <a class="zu-top-nav-link" href="#" id="zh-top-nav-count-wrap" role="button"><span class="mobi-arrow"></span>消息<span id="zh-top-nav-count" class="zu-top-nav-count zg-noti-number" style="display: none;">0</span></a>
+                    </li>
+
+                </#if>
             </ul>
             <div class="zu-top-nav-live zu-noti7-popup zg-r5px no-hovercard" id="zh-top-nav-live-new" role="popup"
                  tabindex="0">

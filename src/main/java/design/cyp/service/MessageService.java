@@ -26,6 +26,10 @@ public class MessageService {
         return messageDAO.getConversationDetail(conversationId, offset, limit);
     }
 
+    public List<Message> getConversationDetail(String conversationId) {
+        return messageDAO.getAllConversationDetail(conversationId);
+    }
+
     public List<Message> getConversationList(int userId, int offset, int limit) {
         return messageDAO.getConversationList(userId, offset, limit);
     }
@@ -36,5 +40,9 @@ public class MessageService {
 
     public void updateHasRead(String conversationId) {
         messageDAO.updateStatus(conversationId);
+    }
+
+    public String getLastMessage(String conversationId){
+        return messageDAO.getLastMessage(conversationId);
     }
 }

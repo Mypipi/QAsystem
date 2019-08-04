@@ -12,8 +12,8 @@ public class FeedService {
     @Autowired
     FeedDAO feedDAO;
 
-    public List<Feed> getUserFeeds(int maxId, List<Integer> userIds, int count) {
-        return feedDAO.selectUserFeeds(maxId, userIds, count);
+    public List<Feed> getUserFeeds(int maxId, List<Integer> userIds) {
+        return feedDAO.selectUserFeeds(maxId, userIds);
     }
 
     public boolean addFeed(Feed feed) {
