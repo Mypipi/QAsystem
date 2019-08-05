@@ -14,10 +14,6 @@
 - 9.freemarker
 - 10.web容器：springboot自带tomcat
 
-<<<<<<< HEAD
-
-=======
->>>>>>> origin/master
 ## 2.功能
 - 1.用户注册登录
 - 2.问题发布，敏感词过滤，js过滤，问题广场
