@@ -35,7 +35,7 @@ public class LikeHandler implements EventHandler {
         message.setToId(eventModel.getEntityOwnerId());
         message.setCreatedDate(new Date());
         User user = userService.getUser(eventModel.getActorId());
-        String url = "<a href= http://127.0.0.1:8080/question/" + eventModel.getExt("questionId") + ">点击查看详情</a>";
+        String url = "<a href=/question/" + eventModel.getExt("questionId") + ">点击查看详情</a>";
         message.setContent("用户"+user.getName()+"赞了你的评论"+ url);
         
 

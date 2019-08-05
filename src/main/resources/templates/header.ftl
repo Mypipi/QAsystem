@@ -16,11 +16,11 @@
     <meta http-equiv="mobile-agent" content="format=html5;url=#">
     <meta id="znonce" name="znonce" content="d3edc464cf014708819feffde7ddd01e">
     <link rel="search" type="application/opensearchdescription+xml" href="#" title="牛">
-    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/Mypipi/static@v3.2/styles/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/Mypipi/WorldPress@v1.0/cyp.xyz/wp-content/myfile/font-awesome/css/font-awesome.min.css?ver=4.7.0">
     <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/Mypipi/static@v3.2/styles/ui.css">
     <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/Mypipi/static@v3.2/styles/letter.css">
-
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
 
 
     <style>
@@ -59,7 +59,7 @@
             <ul class="top-nav-dropdown" id="top-nav-profile-dropdown" aria-labelledby=":0">
                 <li>
                     <a href="/user/${user.id!}" tabindex="-1" id=":1">
-                        <i class="zg-icon zg-icon-dd-home"></i>我的主页
+                        <i class="zg-icon zg-icon-dd-home "></i>我的主页
                     </a>
                 </li>
                 <li>

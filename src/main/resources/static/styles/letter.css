@@ -3739,7 +3739,7 @@ html.no-touchevents .top-nav-dropdown a:hover {
   float:right;
   position:relative;
   min-width:120px;
-  margin-left:15px;
+  margin-left:10px;
   z-index:10
 }
 .top-nav-profile a {
@@ -3819,7 +3819,7 @@ html.no-touchevents .zu-top-nav-userinfo:hover {
 }
 .zu-top-nav-ul {
   padding:0;
-  margin:0 0 0 18px
+  margin:0 0 0 0px
 }
 .zu-top-nav-li {
   position:relative;

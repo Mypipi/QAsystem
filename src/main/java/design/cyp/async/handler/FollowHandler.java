@@ -37,10 +37,10 @@ public class FollowHandler implements EventHandler {
         User user = userService.getUser(eventModel.getActorId());
 
         if (eventModel.getEntityType() == EntityType.ENTITY_QUESTION) {
-            String url = "<a href= http://127.0.0.1:8080/question/" + eventModel.getEntityId() + ">点击查看详情</a>";
+            String url = "<a href=/question/" + eventModel.getEntityId() + ">点击查看详情</a>";
             message.setContent("用户" +user.getName()+ "关注了你的问题 "+url);
         }else if (eventModel.getEntityType() == EntityType.ENTITY_USER) {
-            String url = "<a href= http://127.0.0.1:8080/user/" + eventModel.getActorId() + ">点击查看详情</a>";
+            String url = "<a href=/user/" + eventModel.getActorId() + ">点击查看详情</a>";
             message.setContent("用户"+ user.getName()+ "关注了你 "+url);
         }
         messageService.addMessage(message);
