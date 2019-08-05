@@ -1,8 +1,6 @@
-<<<<<<< HEAD
 # 一个微型论坛/社区
 - 演示地址：http://qasystem.cyp.design:8080/
-=======
->>>>>>> origin/master
+
 ## 1.项目环境
 - .操作系统macOS 10.13.6(黑苹果)
 - 1.IntelliJ IDEA 2019
