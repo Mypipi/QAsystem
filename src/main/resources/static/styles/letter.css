@@ -3588,6 +3588,7 @@ html.no-touchevents .zm-item-vote-info a:hover {
   body.zhi {
     padding-top:0!important
   }
+  img { max-width: 100%; height: auto; width: auto; width: auto; }
   .zu-top {
     position:static
   }
@@ -4089,3 +4090,5 @@ html.no-touchevents .zm-item-vote-count:hover {
   position:absolute;
   left:-48px
 }
+
+img { max-width: 100%; height: auto; width: auto; width: auto; }

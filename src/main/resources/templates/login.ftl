@@ -7,9 +7,11 @@
     <meta name="renderer" content="webkit">
     <meta name="description" content="一个真实的网络问答社区，帮助你寻找答案，分享知识。">
     <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0">
-    <title>与世界分享你的知识、经验和见解</title>
+    <link rel="icon" type="image/x-icon"
+          href="https://cdn.jsdelivr.net/gh/Mypipi/WorldPress@v1.1/cyp.xyz/picture/tree.png">
+    <title>登录注册</title>
     <link rel="dns-prefetch" href="">
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/Mypipi/static@v3.0/styles/login.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/Mypipi/static@v3.4/styles/login.css">
 
 </head>
 <body class="zhi  no-auth">
@@ -18,7 +20,7 @@
         <div class="index-header">
             <h1 class="logo hide-text"><img src="//cdn.jsdelivr.net/gh/Mypipi/static@v2.0/tree.png" alt=""></h1>
             <h2 class="subtitle">
-                与世界分享你的知识、经验和见解
+                To be better!
             </h2>
         </div>
         <div class="desk-front sign-flow clearfix sign-flow-simple">
@@ -49,14 +51,12 @@
                         <a class="unable-login" href="#">无法登录?</a>
                     </div>
                 </form>
-                <h2>
+                <h3 class="logger">
                     <#if msg??>
                         ${msg}
-                    <#else >
-                        你好啊
                     </#if>
 
-                </h2>
+                </h3>
             </div>
         </div>
     </div>

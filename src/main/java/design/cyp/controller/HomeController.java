@@ -96,6 +96,29 @@ public class HomeController {
         return "index";
     }
 
+    @RequestMapping(path = {"/hotQuestions"}, method = {RequestMethod.POST, RequestMethod.GET})
+    public String hotIndexPage(Model model,
+                            @RequestParam(value = "start", defaultValue = "1") int start,
+                            @RequestParam(value = "size", defaultValue = "10") int size) {
+
+        PageHelper.startPage(start, size);
+        List<Question> cs = questionService.getHotQuestions();
+        PageInfo pageInfo = new PageInfo<>(cs, 8);
+        model.addAttribute("page", pageInfo);
+
+        PageHelper.startPage(start,size);
+        List<ViewObject> questions = getHotQuestions();
+        PageInfo page = new PageInfo<>(questions);
+        model.addAttribute("vos",page);
+
+        hostHolder.getUser();
+        return "index";
+    }
+
+
+
+
+
 
     //问题列表页面
     private List<ViewObject> getQuestions(int userId, int offset, int limit) {
@@ -117,6 +140,23 @@ public class HomeController {
 
     private List<ViewObject> getQuestions() {
         List<Question> questionList = questionService.getAllQuestions();//获取10个
+
+        List<ViewObject> vos = new ArrayList<>();//通过list存map集合
+
+        for (Question question : questionList) {
+            ViewObject vo = new ViewObject();
+            vo.set("question", question);
+            vo.set("followCount", followService.getFollowerCount(EntityType.ENTITY_QUESTION, question.getId()));
+            vo.set("user", userService.getUser(question.getUserId()));//通过question的user_id查找userid
+            vos.add(vo);
+        }
+
+        return vos;
+
+    }
+
+    private List<ViewObject> getHotQuestions() {
+        List<Question> questionList = questionService.getHotQuestions();//获取10个
 
         List<ViewObject> vos = new ArrayList<>();//通过list存map集合
 

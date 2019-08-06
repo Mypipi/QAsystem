@@ -81,7 +81,7 @@
                                 <#else >
                                 <a class="up js-like" title="赞同">
                                     </#if>
-                                    <i class="fa fa-thumbs-o-up"><span class="count js-voteCount">${comment.likeCount!}</span></i>
+                                    <i class="fa fa-thumbs-o-up fa-lg"><span class="count js-voteCount">${comment.likeCount!}</span></i>
                                     <span class="label sr-only">赞同</span>
                                 </a>
 
@@ -90,7 +90,7 @@
                                     <#else >
                                     <a class="down js-dislike" title="反对，不会显示你的姓名">
                                         </#if>
-                                        <i class="fa fa-thumbs-o-down"></i>
+                                        <i class="fa fa-thumbs-o-down fa-lg"></i>
                                         <span class="label sr-only">反对，不会显示你的姓名</span>
                                     </a>
                         </div>

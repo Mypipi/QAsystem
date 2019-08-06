@@ -39,6 +39,10 @@ public class QuestionService {
         return questionDAO.getAllQuestions();//获取查询结果
     }
 
+    public List<Question> getHotQuestions(){
+        return questionDAO.getHOtQuestions();
+    }
+
     public int updateCommentCount(int id, int count) {
         return questionDAO.updateCommentCount(id, count);
     }

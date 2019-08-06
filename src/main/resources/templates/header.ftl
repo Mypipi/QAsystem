@@ -16,10 +16,11 @@
     <meta http-equiv="mobile-agent" content="format=html5;url=#">
     <meta id="znonce" name="znonce" content="d3edc464cf014708819feffde7ddd01e">
     <link rel="search" type="application/opensearchdescription+xml" href="#" title="牛">
+
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/Mypipi/WorldPress@v1.0/cyp.xyz/wp-content/myfile/font-awesome/css/font-awesome.min.css?ver=4.7.0">
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/Mypipi/static@v3.2/styles/ui.css">
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/Mypipi/static@v3.2/styles/letter.css">
-    <link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/Mypipi/static@v3.4/styles/ui.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/Mypipi/static@v3.4/styles/letter.css">
+
 
 
 
@@ -193,8 +194,8 @@
             </div>
         </div>
         <div role="search" id="zh-top-search" class="zu-top-search">
-            <form method="GET" action="#" id="zh-top-search-form" class="zu-top-search-form">
-                <input type="hidden" name="type" value="content">
+            <form method="GET" action="/search" id="zh-top-search-form" class="zu-top-search-form">
+
                 <label for="q" class="hide-text">搜索</label><input type="text" class="zu-top-search-input" id="q"
                                                                   name="q" autocomplete="off" value=""
                                                                   placeholder="搜索你感兴趣的内容..." role="combobox"

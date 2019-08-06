@@ -36,19 +36,19 @@ public class UserService {
         Map<String, String> map = new HashMap<String, String>();
         //用户名为空
         if (StringUtils.isBlank(username)) {
-            map.put("msg", "username can not be empty");
+            map.put("msg", "用户名不能为空！！");
             return map;
         }
         //密码为空
         if (StringUtils.isBlank(password)) {
-            map.put("msg", "password can not be empty");
+            map.put("msg", "密码不能为空！！");
             return map;
         }
         //用户名重复
         User user = userDAO.selectByName(username);
 
         if (user != null) {
-            map.put("msg", "username is exits");
+            map.put("msg", "用户名已存在！！");
             return map;
         }
 
@@ -79,23 +79,23 @@ public class UserService {
         Map<String, String> map = new HashMap<String, String>();
         //用户名为空
         if (StringUtils.isBlank(username)) {
-            map.put("msg", "username can not be empty");
+            map.put("msg", "用户名不能为空！！");
             return map;
         }
         //密码为空
         if (StringUtils.isBlank(password)) {
-            map.put("msg", "password can not be empty");
+            map.put("msg", "密码不能为空！！");
             return map;
         }
         //用户名重复
         User user = userDAO.selectByName(username);
         if (user == null) {
-            map.put("msg", "username is not exits");
+            map.put("msg", "用户名不能为空！！");
             return map;
         }
 
         if (!QAUtil.MD5(password + user.getSalt()).equals(user.getPassword())) {
-            map.put("msg", "密码错误");
+            map.put("msg", "密码错误！！");
             return map;
         }
 

@@ -39,4 +39,8 @@ public interface QuestionDAO {
     @Select({"select",SELECT_FIELDS,"from",TABLE_NAME})
     List<Question> getAllQuestions();
 
+
+    @Select({"select *,(comment_count-1)/((datediff(now(),created_date)+2)<<1.8) as score from ", TABLE_NAME ," order by score desc"})
+    List<Question> getHOtQuestions();
+
 }

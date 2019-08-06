@@ -31,12 +31,13 @@
 
                         <div class="menu-txt-box">
                             <ul class="menu-txt clearfix">
-                                <li class="selected">
-                                    <a href="#">最新发表</a>
+                                <li class="">
+                                    <a class="fa fa-home" href="/">最新发表</a>
                                 </li>
                                 <li class="menu-pipe">|</li>
-                                <li>
-                                    <a href="">最新回复</a>
+                                <li class="">
+                                        <a class="fa fa-fire" href="/hotQuestions">最热</a>
+
                                 </li>
 
                             </ul>
